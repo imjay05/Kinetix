@@ -1,83 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>MyDrive</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kinetix Drive</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/jpeg" href="logo.jpeg" />
 </head>
 <body>
-    <div id="root">
-        <div class="main-layout">
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <button class="new-btn" onclick="triggerFileUpload()">
-                    <img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" 
-                         alt="New" width="20" style="margin-right: 8px;">
-                    New
-                </button>
-                
-                <input type="file" id="hiddenFileInput" class="hidden-file-input" 
-                       onchange="handleFileSelect(event)" multiple>
-                
-                <ul>
-                    <li>🏠 Home</li>
-                    <li>📁 My Drive</li>
-                    <li>💻 Computers</li>
-                    <li>👥 Shared with me</li>
-                    <li>🕒 Recent</li>
-                    <li>⭐ Starred</li>
-                    <li>🗑️ Trash</li>
-                    <li>☁️ Storage</li>
-                </ul>
-            </div>
-
-            <!-- Content Area -->
-            <div class="content-area">
-                <!-- Header -->
-                <div class="header">
-                    <div class="brand-container">
-                        <img src="logo.jpeg" alt="MyDrive Logo" class="brand-logo">
-                        <h2>MyDrive</h2>
-                    </div>
-                    <div class="search-container">
-                        <input type="text" placeholder="Search in Drive" 
-                               oninput="handleSearch(this.value)">
-                    </div>
-                </div>
-
-                <!-- Files Display Area -->
-                <div id="filesContainer">
-                    <div class="empty-state">
-                        <svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <defs>
-                                <linearGradient id="folderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#e6f3ff"/>
-                                    <stop offset="100%" style="stop-color:#cce7ff"/>
-                                </linearGradient>
-                                <linearGradient id="fileGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#fef7e0"/>
-                                    <stop offset="100%" style="stop-color:#fef3c7"/>
-                                </linearGradient>
-                                <linearGradient id="fileGradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" style="stop-color:#e8f5e8"/>
-                                    <stop offset="100%" style="stop-color:#dcf4dc"/>
-                                </linearGradient>
-                            </defs>
-                            <rect x="50" y="60" width="200" height="120" rx="12" fill="url(#folderGradient)" stroke="#0066ff" stroke-width="2"/>
-                            <rect x="70" y="80" width="50" height="60" rx="8" fill="url(#fileGradient1)" stroke="#f59e0b" stroke-width="2"/>
-                            <rect x="130" y="80" width="50" height="60" rx="8" fill="url(#fileGradient2)" stroke="#10b981" stroke-width="2"/>
-                            <rect x="190" y="80" width="50" height="60" rx="8" fill="#e6f3ff" stroke="#0066ff" stroke-width="2"/>
-                            <circle cx="150" cy="40" r="18" fill="#0066ff"/>
-                            <path d="M142 35 L150 43 L158 35" stroke="white" stroke-width="3" fill="none"/>
-                        </svg>
-                        <p>Drag your files and folders here or use the "New" button to upload</p>
-                    </div>
-                </div>
-            </div>
+    <div class="header">
+        <div class="logo-container">
+            <img src="Kinetix_Logo.png" alt="Kinetix Logo" class="logo">
+            <span class="logo-text">Kinetix Drive</span>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="Search in Drive">
         </div>
     </div>
+    <div class="container">
+        <div class="sidebar">
+            <label class="new-btn">
+                <span style="font-size: 24px; color: #1a73e8;">+</span>
+                <span>New</span>
+                <input type="file" id="fileInput" onchange="uploadFile()">
+            </label>
+            <div class="menu-item active">
+                <span>📁</span>
+                <span>My Drive</span>
+            </div>
+            <div class="menu-item">
+                <span>👥</span>
+                <span>Shared with me</span>
+            </div>
+            <div class="menu-item">
+                <span>⭐</span>
+                <span>Starred</span>
+            </div>
+            <div class="menu-item">
+                <span>🗑️</span>
+                <span>Trash</span>
+            </div>
+        </div>
+        <div class="main-content">
+            <div class="section-header">
+                <div class="section-title">My Drive</div>
+                <div class="view-toggle">
+                    <button class="view-btn active" onclick="switchView('grid')">⊞</button>
+                    <button class="view-btn" onclick="switchView('list')">☰</button>
+                </div>
+            </div>
+            <div id="gridView" class="files-grid"></div>
+            <div id="listView" class="files-list hidden"></div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
 
     <script src="script.js"></script>
 </body>

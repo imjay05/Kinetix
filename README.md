@@ -30,5 +30,5 @@ Kinetix allows users to upload, view, download, and organize files on a **locall
 
 🙋‍♂️ Author
 
-Jay Shlke
+Jay Shelke
 📫 github.com/imjay05

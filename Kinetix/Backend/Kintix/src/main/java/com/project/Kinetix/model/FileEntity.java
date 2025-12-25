@@ -1,4 +1,4 @@
-package com.Development.Drive.Entity;
+package com.project.Kinetix.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -20,20 +20,6 @@ public class FileEntity {
     private String type;
     private Long parentFolderId;
     private LocalDateTime createdAt;
-
-    public FileEntity(){
-
-    }
-
-    public FileEntity(Long id, String name, String path, Long size, String type, Long parentFolderId, LocalDateTime createdAt) {
-        this.id = id;
-        this.name = name;
-        this.path = path;
-        this.size = size;
-        this.type = type;
-        this.parentFolderId = parentFolderId;
-        this.createdAt = createdAt;
-    }
 
     public Long getId() {
         return id;
@@ -89,5 +75,18 @@ public class FileEntity {
 
     public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public FileEntity(Long id, String name, String path, Long size, String type, Long parentFolderId, LocalDateTime createdAt) {
+        this.id = id;
+        this.name = name;
+        this.path = path;
+        this.size = size;
+        this.type = type;
+        this.parentFolderId = parentFolderId;
+        this.createdAt = createdAt;
+    }
+
+    public FileEntity() {
     }
 }

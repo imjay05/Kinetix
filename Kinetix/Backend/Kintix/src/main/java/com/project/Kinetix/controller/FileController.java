@@ -1,14 +1,13 @@
-package com.Development.Drive.Controller;
+package com.project.Kinetix.controller;
 
-import com.Development.Drive.Entity.FileEntity;
-import com.Development.Drive.Services.FileServiceStorage;
-import org.springframework.core.io.Resource;
+import com.project.Kinetix.model.FileEntity;
+import com.project.Kinetix.services.FileStorageService;
+import jakarta.annotation.Resource;
 import org.springframework.core.io.UrlResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -22,17 +21,15 @@ import java.util.List;
         "*"
 })
 public class FileController {
+    private final FileStorageService fileServiceStorage;
 
-
-    private final FileServiceStorage fileServiceStorage;
-
-    public FileController(FileServiceStorage fileServiceStorage) {
+    public FileController(FileStorageService fileServiceStorage) {
         this.fileServiceStorage = fileServiceStorage;
     }
 
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file")MultipartFile file,
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file,
                                              @RequestParam(value = "parentFolderId",required = false) Long parentFolderId)
     {
         try{
@@ -51,10 +48,10 @@ public class FileController {
         try{
             FileEntity fileEntity=fileServiceStorage.getFileById(id);
             Path path = Paths.get(fileEntity.getPath());
-            Resource resource=new UrlResource(path.toUri());
+            UrlResource resource=new UrlResource(path.toUri());
             return ResponseEntity.ok()
                     .header("content-Disposition","attachment; filename=\""+fileEntity.getName() + "\"")
-                    .body(resource);
+                    .body((Resource) resource);
         }
         catch (Exception e)
         {
@@ -82,10 +79,7 @@ public class FileController {
     public ResponseEntity<String> deleteFile(@PathVariable Long id)
     {
         try {
-            //will take path from mysql
             FileEntity fileEntity=fileServiceStorage.getFileById(id);
-
-            //will make path and delete from disk
             Path path = Paths.get(fileEntity.getPath());
             Files.deleteIfExists(path);
             fileServiceStorage.deleteById(id);

@@ -68,7 +68,6 @@ Delete: Remove file records from the MySQL database and the physical storage sim
 ## 🏁 Getting Started
 Clone the repository:
 
-Bash
 
 git clone https://github.com/imjay05/Kinetix.git
 Database Configuration:

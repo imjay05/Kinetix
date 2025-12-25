@@ -1,5 +1,5 @@
 # Kinetix 
-Kinetix is a full-stack file management system built to demonstrate CRUD (Create, Read, Delete) operations. This project provides a streamlined way to handle digital assets, allowing users to upload files to a server, view them in a structured list, download them for use, or delete them permanently.
+Kinetix is a full-stack file management system built to demonstrate CRUD (Create, Upload, Read, Delete) operations. This project provides a streamlined way to handle digital assets, allowing users to upload files to a server, view them in a structured list, download them for use, or delete them permanently.
 
 ## 📺 Project Demo
 Watch the project in action here: https://github.com/imjay05/Kinetix/blob/main/Kinetix/Project_Demo/Kinetix.mp4 

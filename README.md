@@ -4,9 +4,21 @@ Kinetix is a full-stack file management system built to demonstrate CRUD (Create
 ## 📺 Project Demo
 Watch the project in action here: https://github.com/imjay05/Kinetix/blob/main/Kinetix/Project_Demo/Kinetix.mp4 
 
+
+## 🛠️ Tech Stack
+
+| Layer      | Technology                  |
+|------------|------------------------------|
+| Backend    | Java 21, Spring Boot v3.4.8  |
+| Frontend   | HTML, CSS, JavaScript        |
+| Database   | MySQL                        |
+| Storage    | Local file system            |
+| Build Tool | Maven                        |
+
+---
+
 ## 🏗️ Project Structure
 The project follows a standard MVC (Model-View-Controller) architecture for the backend and a decoupled frontend.
-
 
 ```text
 Kinetix/
@@ -38,18 +50,6 @@ Kinetix/
 └── README.md
 
 ```
-
-## 🛠️ Tech Stack
-
-| Layer      | Technology                  |
-|------------|------------------------------|
-| Backend    | Java 21, Spring Boot v3.4.8  |
-| Frontend   | HTML, CSS, JavaScript        |
-| Database   | MySQL                        |
-| Storage    | Local file system            |
-| Build Tool | Maven                        |
-
----
 
 ## 🛠️ Features & CRUD Functionality
 

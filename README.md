@@ -1,7 +1,7 @@
-# 📁 MyDrive
+# Kinetix
 
 A **self-hosted local file management system** built with **Spring Boot**, **MySQL**, and a modern web interface using **HTML, CSS, and JavaScript**.  
-MyDrive allows users to upload, view, download, and organize files on a **locally hosted server**, acting like a personal cloud **without using third-party storage providers**.
+Kinetix allows users to upload, view, download, and organize files on a **locally hosted server**, acting like a personal cloud **without using third-party storage providers**.
 
 ---
 
@@ -39,15 +39,15 @@ MyDrive allows users to upload, view, download, and organize files on a **locall
 ### 📥 Steps
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/imjay05/MyDrive.git
-   cd MyDrive/MyDrive
+   git clone https://github.com/imjay05/Kinetix.git
+   cd Kinetix/MKinetix
 Configure the Database
 
-Create a MySQL database (e.g., mydrive_db)
+Create a MySQL database (e.g., Kinetix_db)
 
 Update application.properties with your DB credentials:
 
-spring.datasource.url=jdbc:mysql://localhost:3306/mydrive_db
+spring.datasource.url=your_url
 spring.datasource.username=your_username
 spring.datasource.password=your_password
 Build and Run the Application
